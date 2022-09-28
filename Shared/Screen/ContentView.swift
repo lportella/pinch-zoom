@@ -11,6 +11,7 @@ struct ContentView: View {
     // MARK: Properties
     
     @State private var isAnimating: Bool = false
+    @State private var imageScale: CGFloat = 1
     
     var body: some View {
         NavigationView {
@@ -23,6 +24,12 @@ struct ContentView: View {
                     .shadow(color: .black.opacity(0.2), radius: 12, x: 2, y: 2)
                     .opacity(isAnimating ? 1 : 0)
                     .animation(.linear(duration: 1.0), value: isAnimating)
+                    .scaleEffect(imageScale)
+                    .onTapGesture(count: 2) {
+                        withAnimation(.spring()) {
+                            imageScale = imageScale == 1 ? 5 : 1
+                        }
+                    }
             }
             .navigationTitle("Pinch & Zoom")
             .navigationBarTitleDisplayMode(.inline)
