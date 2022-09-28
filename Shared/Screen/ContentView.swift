@@ -28,8 +28,12 @@ struct ContentView: View {
                     .offset(x: imageOffset.width, y: imageOffset.height)
                     .scaleEffect(imageScale)
                     .onTapGesture(count: 2) {
-                        withAnimation(.spring()) {
-                            imageScale = imageScale == 1 ? 5 : 1
+                        if imageScale == 1 {
+                            withAnimation(.spring()) {
+                                imageScale = 5
+                            }
+                        } else {
+                            resetImageState()
                         }
                     }
                     .gesture(
@@ -37,6 +41,11 @@ struct ContentView: View {
                             .onChanged({ value in
                                 withAnimation(.linear(duration: 1)) {
                                     imageOffset = value.translation
+                                }
+                            })
+                            .onEnded({ _ in
+                                if imageScale <= 1 {
+                                    resetImageState()
                                 }
                             })
                     )
@@ -50,6 +59,15 @@ struct ContentView: View {
             })
         }
         .navigationViewStyle(.stack)
+    }
+}
+
+private extension ContentView {
+    func resetImageState() {
+        withAnimation(.spring()) {
+            imageScale = 1
+            imageOffset = .zero
+        }
     }
 }
 
