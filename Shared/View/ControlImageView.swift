@@ -10,11 +10,10 @@ import SwiftUI
 struct ControlImageView: View {
     var icon: String
     
+    
     var body: some View {
-        Button {} label: {
-            Image(systemName: icon)
-                .font(.system(size: 36))
-        }
+        Image(systemName: icon)
+            .font(.system(size: 36))
     }
 }
 
