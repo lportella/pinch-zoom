@@ -87,7 +87,7 @@ struct ContentView: View {
                         
                         Button {
                             withAnimation(.spring()) {
-                                
+                                resetImageState()
                             }
                         } label: {
                             ControlImageView(
