@@ -9,17 +9,23 @@ import SwiftUI
 
 struct ControlImageView: View {
     var icon: String
-    
+    var completion: () -> Void
     
     var body: some View {
-        Image(systemName: icon)
-            .font(.system(size: 36))
+        Button {
+            withAnimation(.spring()) {
+                completion()
+            }
+        } label: {
+            Image(systemName: icon)
+                .font(.system(size: 36))
+        }
     }
 }
 
 struct ControlImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ControlImageView(icon: "minus.magnifyingglass")
+        ControlImageView(icon: "minus.magnifyingglass", completion: {})
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
             .padding()

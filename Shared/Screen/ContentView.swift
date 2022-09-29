@@ -73,7 +73,7 @@ struct ContentView: View {
             .overlay(
                 Group {
                     HStack {
-                        Button {
+                        ControlImageView(icon: "minus.magnifyingglass") {
                             withAnimation(.spring()) {
                                 if imageScale <= 1 {
                                     resetImageState()
@@ -81,28 +81,20 @@ struct ContentView: View {
                                     imageScale -= 1
                                 }
                             }
-                        } label: {
-                            ControlImageView(icon: "minus.magnifyingglass")
                         }
-                        
-                        Button {
+
+                        ControlImageView(icon: "arrow.up.left.and.down.right.magnifyingglass") {
                             withAnimation(.spring()) {
                                 resetImageState()
                             }
-                        } label: {
-                            ControlImageView(
-                                icon: "arrow.up.left.and.down.right.magnifyingglass"
-                            )
                         }
                         
-                        Button {
+                        ControlImageView(icon: "plus.magnifyingglass") {
                             withAnimation(.spring()) {
                                 if imageScale < 5 {
                                     imageScale += 1
                                 }
                             }
-                        } label: {
-                            ControlImageView(icon: "plus.magnifyingglass")
                         }
                     }
                     .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
