@@ -97,7 +97,9 @@ struct ContentView: View {
                         
                         Button {
                             withAnimation(.spring()) {
-                                
+                                if imageScale < 5 {
+                                    imageScale += 1
+                                }
                             }
                         } label: {
                             ControlImageView(icon: "plus.magnifyingglass")
