@@ -73,8 +73,14 @@ struct ContentView: View {
             .overlay(
                 Group {
                     HStack {
-                        ControlImageView()
+                        ControlImageView(icon: "minus.magnifyingglass")
+                        ControlImageView(icon: "arrow.up.left.and.down.right.magnifyingglass")
+                        ControlImageView(icon: "plus.magnifyingglass")
                     }
+                    .padding(EdgeInsets(top: 12, leading: 20, bottom: 12, trailing: 20))
+                    .background(.ultraThinMaterial)
+                    .cornerRadius(22)
+                    .opacity(isAnimating ? 1 : 0)
                 }
                     .padding(.bottom, 30),
                 alignment: .bottom

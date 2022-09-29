@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ControlImageView: View {
+    var icon: String
+    
     var body: some View {
         Button {} label: {
-            Image(systemName: "minus.magnifyingglass")
+            Image(systemName: icon)
                 .font(.system(size: 36))
         }
     }
@@ -18,7 +20,7 @@ struct ControlImageView: View {
 
 struct ControlImageView_Previews: PreviewProvider {
     static var previews: some View {
-        ControlImageView()
+        ControlImageView(icon: "minus.magnifyingglass")
             .preferredColorScheme(.dark)
             .previewLayout(.sizeThatFits)
             .padding()
