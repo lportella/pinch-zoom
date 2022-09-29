@@ -34,6 +34,13 @@ struct InfoPanelView: View {
                 Image(systemName: "arrow.up.and.down")
                 Text("\(offset.height)")
             }
+            .font(.footnote)
+            .padding(8)
+            .background(.ultraThinMaterial)
+            .cornerRadius(8)
+            .frame(maxWidth: 420)
+            
+            Spacer()
         }
     }
 }
