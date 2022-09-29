@@ -19,6 +19,7 @@ struct ContentView: View {
             ZStack {
                 Color.clear
                 
+                //MARK: Image
                 Image("magazine-front-cover")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -60,12 +61,25 @@ struct ContentView: View {
                 }
             })
             
+            // MARK: Info Panel
             .overlay(
                 InfoPanelView(scale: imageScale, offset: imageOffset)
                     .padding(.horizontal)
                     .padding(.top, 30),
                 alignment: .top
             )
+            
+            // MARK: Control Interface
+            .overlay(
+                Group {
+                    HStack {
+                        ControlImageView()
+                    }
+                }
+                    .padding(.bottom, 30),
+                alignment: .bottom
+            )
+            
         }
         .navigationViewStyle(.stack)
     }
